@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const Navbar = ({ username }) => {
+const Navbar = () => {
     const router = useRouter();
+    const  username = localStorage.getItem('username');
 
     const logout = () => {
         localStorage.clear();
         router.push('/');
     }
     return (
-      <nav className="bg-gradient-to-r from-purple-700 via-pink-500 to-red-500 p-4 flex ">
+      <nav className="bg-black p-4 flex ">
         <div className="container mx-auto flex justify-evenly">
           <h1 className="text-white text-2xl font-bold font-serif underline">Welcome @{username}</h1>
           <div className="flex space-x-4">

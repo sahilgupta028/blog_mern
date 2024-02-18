@@ -2,9 +2,11 @@
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
+import Post from './components/Post';
 
 const profile = () => {
   const [userData, setUserData] = useState(null);
+  // const [post, setPost] = useState(null);
   const username = localStorage.getItem('username');
   useEffect(() => {
     const fetchUserData = async () => {
@@ -13,6 +15,8 @@ const profile = () => {
         if (response.ok) {
           const userData = await response.json();
           setUserData(userData);
+          console.log(userData.posts);
+          // setPost(userData.posts);
         } else {
           console.error('Failed to fetch user data');
         }
@@ -33,9 +37,8 @@ const profile = () => {
 
   return (
     <div>
-      <Navbar username={username} />
-    <div className="container mx-auto mt-10 p-6 bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 flex items-center flex-col justify-center rounded-lg shadow-md font-serif">
-      {/* <Navbar username={username} /> */}
+      <Navbar />
+    <div className="container mx-auto mt-10 p-6 bg-black flex items-center flex-col text-white justify-center rounded-lg shadow-md font-serif">
       <h1 className="text-3xl font-bold mb-4 underline">Profile Page</h1>
       {/* <p className="text-lg mb-2">Username: {username}</p> */}
       {userData && (
@@ -45,6 +48,7 @@ const profile = () => {
         </>
       )}
     </div>
+    <Post/>
     </div>
   );
 };

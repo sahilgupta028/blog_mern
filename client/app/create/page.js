@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Navbar from '../profile/components/Navbar';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -42,45 +43,44 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="container mx-auto p-6 bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 rounded-lg shadow-md font-serif">
-        <h1 className="text-3xl font-extrabold mb-4 flex justify-center underline">Create a Post</h1>
-        <form onSubmit={handleFormSubmit} className="max-w-lg mx-auto">
-          <div className="mb-4">
-            <label htmlFor="title" className="block text-gray-700 font-bold mb-2 underline">
-              Title
-            </label>
-            <input
-              type="text"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="description" className="block text-gray-700 font-bold mb-2 underline">
-              Description
-            </label>
-            <textarea
-              id="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              rows="5"
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-          >
-            Create Post
-          </button>
-        </form>
+    <div>
+      <Navbar />
+    <div className="min-h-screen flex justify-center items-center bg-black font-sans ">
+  <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h1 className="text-3xl font-extrabold mb-6 text-center underline">Create a Post</h1>
+    <form onSubmit={handleFormSubmit} className="space-y-4">
+      <div>
+        <label htmlFor="title" className="block text-gray-700 font-bold mb-2">Title</label>
+        <input
+          type="text"
+          id="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          required
+        />
       </div>
-    </div>
+      <div>
+        <label htmlFor="description" className="block text-gray-700 font-bold mb-2">Description</label>
+        <textarea
+          id="description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          rows="5"
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+      >
+        Create Post
+      </button>
+    </form>
+  </div>
+</div>
+</div>
   );
 };
 

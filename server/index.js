@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const authRoutes = require('./src/routes/authRoutes');
 require('dotenv').config();
@@ -11,7 +12,7 @@ const { DATABASE_URL } = process.env;
 
 app.use(bodyParser.json());
 
-app.use(cors()); 
+app.use(cors())
 
 // Connect to MongoDB
 mongoose.connect(DATABASE_URL)

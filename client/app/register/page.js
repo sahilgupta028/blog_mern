@@ -42,7 +42,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 font-serif">
+    <div className="min-h-screen flex items-center justify-center bg-black font-serif">
     <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md transition-transform transform hover:scale-105">
       <h2 className="text-3xl font-bold text-gray-800 mb-6 flex justify-center">🌟 Register</h2>
       <form>
