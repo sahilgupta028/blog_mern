@@ -42,52 +42,53 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-black font-serif">
-      <div className="max-w-md w-full p-6 bg-white rounded-md shadow-md transition-transform transform hover:scale-105">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 flex justify-center">🚀 Login</h2>
-        <form>
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" >
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              className="w-full p-3 border rounded-md focus:outline-none focus:border-blue-500 transition-all duration-300"
-              placeholder="Enter your username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              className="w-full p-3 border rounded-md focus:outline-none focus:border-blue-500 transition-all duration-300"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <button
-            type="button"
-            className="w-full bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600 transition-all duration-300"
-            onClick={handleLogin}
-          >
-            Login
-          </button>
-        </form>
-        <div className='flex flex-row text-black items-center mt-8 justify-center'>
-          <h3 className='text-gray-700 text-sm'>Don't have an account?</h3>
-          <Link href="/register">
-            <button className="ml-2 text-gray-700 text-sm flex flex-row hover:underline">Register Now...</button>
-          </Link>
-        </div>
+    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-blue-900 to-purple-900 font-serif">
+  <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
+    <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">🚀 Login</h2>
+    <form className="space-y-4">
+      <div>
+        <label htmlFor="username" className="block text-sm font-semibold text-gray-800">
+          Username
+        </label>
+        <input
+          type="text"
+          id="username"
+          className="w-full p-3 border-b-2 border-gray-400 focus:outline-none focus:border-purple-500 transition duration-300"
+          placeholder="Enter your username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
       </div>
+      <div>
+        <label htmlFor="password" className="block text-sm font-semibold text-gray-800">
+          Password
+        </label>
+        <input
+          type="password"
+          id="password"
+          className="w-full p-3 border-b-2 border-gray-400 focus:outline-none focus:border-purple-500 transition duration-300"
+          placeholder="Enter your password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <button
+        type="button"
+        className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-lg hover:bg-purple-700 transition duration-300"
+        onClick={handleLogin}
+      >
+        Login
+      </button>
+    </form>
+    <div className="flex justify-center items-center mt-4">
+      <p className="text-sm text-gray-800">Don't have an account?</p>
+      <Link href="/register">
+        <button className="ml-2 text-purple-600 hover:underline">Register Now...</button>
+      </Link>
     </div>
+  </div>
+</div>
+
   );
 };
 

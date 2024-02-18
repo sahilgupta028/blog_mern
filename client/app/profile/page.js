@@ -37,19 +37,18 @@ const profile = () => {
 
   return (
     <div>
-      <Navbar />
-    <div className="container mx-auto mt-10 p-6 bg-black flex items-center flex-col text-white justify-center rounded-lg shadow-md font-serif">
-      <h1 className="text-3xl font-bold mb-4 underline">Profile Page</h1>
-      {/* <p className="text-lg mb-2">Username: {username}</p> */}
-      {userData && (
-        <>
-          <p className="text-lg mb-2">Name: {userData.name}</p>
-          <p className="text-lg mb-2">Email-Id: {userData.email}</p>
-        </>
-      )}
-    </div>
-    <Post/>
-    </div>
+  <Navbar />
+  <div className="container mx-auto mt-10 p-6 bg-gradient-to-br from-purple-900 to-blue-900 flex items-center flex-col text-white justify-center rounded-lg shadow-md font-serif">
+    <h1 className="text-3xl font-bold mb-4 underline">Profile Page</h1>
+    {userData && (
+      <>
+        <p className="text-lg mb-2">Name: {userData.name}</p>
+        <p className="text-lg mb-2">Email-Id: {userData.email}</p>
+      </>
+    )}
+  </div>
+  <Post/>
+</div>
   );
 };
 

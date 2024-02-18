@@ -39,25 +39,22 @@ const Post = () => {
   };
 
   return (
-    <div className=" min-h-screen py-12 font-serif">
-    <h2 className="text-4xl font-semibold text-center text-black mb-8 underline">My Post</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      {posts.map((post) => (
-        <div key={post._id} className="bg-black rounded-lg overflow-hidden shadow-md m-5">
-          <div className="px-6 py-4">
-            <h3 className="text-xl font-semibold text-white mb-2 flex justify-center underline capitalize">{post.title}</h3>
-            <p className="text-white mb-5">{post.description}</p>
-            <div className="px-6 py-4 bg-gray-400 border-t border-gray-500 flex items center justify-center">
-              {console.log(post._id)}
-            <button onClick={() => handleDeletePost(post._id)} className="text-red-600 hover:text-red-800 font-semibold focus:outline-none">Delete</button>
-          </div>
-          </div>  
+    <div className="min-h-screen py-12 font-serif bg-gradient-to-br from-purple-900 to-blue-900 m-12 rounded-lg">
+  <h2 className="text-4xl font-semibold text-center text-white mb-8 underline">My Posts</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    {posts.map((post) => (
+      <div key={post._id} className="bg-white rounded-lg overflow-hidden shadow-md m-5">
+        <div className="px-6 py-4">
+          <h3 className="text-xl font-semibold text-gray-800 mb-2 flex justify-center underline capitalize">{post.title}</h3>
+          <p className="text-gray-600">{post.description}</p>
         </div>
-      ))}
-    </div>
+        <div className="px-6 py-4 bg-gray-100 border-t border-gray-200 flex items-center justify-center">
+          <button onClick={() => handleDeletePost(post._id)} className="text-red-600 hover:text-red-800 font-semibold focus:outline-none">Delete</button>
+        </div>
+      </div>
+    ))}
   </div>
-  
-
+</div>
   );
 };
 
