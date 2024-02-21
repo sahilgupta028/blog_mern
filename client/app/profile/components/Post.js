@@ -39,7 +39,7 @@ const Post = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 font-serif bg-gradient-to-br from-purple-900 to-blue-900 m-12 rounded-lg">
+  <div className="min-h-screen py-12 m-12 rounded-lg font-mono">
   <h2 className="text-4xl font-semibold text-center text-white mb-8 underline">My Posts</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {posts.map((post) => (

@@ -24,7 +24,7 @@ const AllPosts = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-purple-900 to-blue-900 min-h-screen py-12 font-serif">
+    <div className="bg-gradient-to-br from-purple-900 to-blue-900 min-h-screen py-12 font-mono">
   <h2 className="text-4xl font-semibold text-center text-white mb-8 underline">All Posts</h2>
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     {posts.map((post) => (

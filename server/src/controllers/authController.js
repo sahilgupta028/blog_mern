@@ -3,13 +3,17 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const Post = require('../models/Post');
+const cloudinary = require('../utils/cloudinary');
 
 const SECRET = process.env.JWT_SECRET || crypto.randomBytes(32).toString('hex');
 
 exports.register = async (req, res) => {
   try {
-    const { name, username, email, password } = req.body;
-    const user = new User({ name, username, email, password });
+    const { name, username, email, age, contact, profession, password  } = req.body;
+    const imagePath = await cloudinary.uploader.upload(req.file.path);
+    const imageUrl = imagePath.secure_url;
+    console.log(imagePath);
+    const user = new User({ name, username, email, age, contact, profession, password, imagePath: imageUrl });
     await user.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
@@ -25,8 +29,6 @@ exports.login = async (req, res) => {
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    console.log("ok");
-
     const isPasswordValid = await user.comparePassword(password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Invalid username or password' });
@@ -34,8 +36,9 @@ exports.login = async (req, res) => {
 
     const token = jwt.sign({ userId: user._id }, SECRET);
     res.status(200).json({ token });
+    console.log("login done");
   } catch (error) {
-    console.error('Error during login:', error);
+    console.log('Error during login:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
@@ -100,6 +103,37 @@ exports.deletePost = async (req, res) => {
   } catch (error) {
     console.error('Error deleting post:', error);
     res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+exports.update = async (req, res) => {
+  try {
+    const { name, age, email, contact, profession } = req.body;
+    let profileImage = '';
+
+    if (req.file) {
+      profileImage = req.file.filename;
+    }
+
+    // Update the user's profile in the database
+    const updatedProfile = await User.findOneAndUpdate(
+      { username: req.params.username }, 
+      { name, age, email, contact, profession, profileImage }, 
+      { new: true } 
+    );
+
+    if (!updatedProfile) {
+      return res.status(404).json({ error: 'User profile not found' });
+    }
+
+    // Log the updated profile data
+    console.log('Updated Profile:', updatedProfile);
+
+    // Send a success response
+    res.status(200).json({ message: 'Profile updated successfully', updatedProfile });
+  } catch (error) {
+    console.error('Error updating profile:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
 

@@ -45,12 +45,12 @@ const CreatePost = () => {
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-900 to-gray-800 font-sans">
+      <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-900 to-gray-800 font-mono">
   <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-    <h1 className="text-3xl font-extrabold mb-6 text-center text-blue-600">Create a Post</h1>
+    <h1 className="text-3xl font-extrabold mb-6 text-center text-blue-600 underline">Create a Post</h1>
     <form onSubmit={handleFormSubmit} className="space-y-4">
       <div>
-        <label htmlFor="title" className="block text-gray-700 font-bold mb-2">Title</label>
+        <label htmlFor="title" className="block text-gray-700 font-bold mb-2 underline">Title</label>
         <input
           type="text"
           id="title"
@@ -62,7 +62,7 @@ const CreatePost = () => {
         />
       </div>
       <div>
-        <label htmlFor="description" className="block text-gray-700 font-bold mb-2">Description</label>
+        <label htmlFor="description" className="block text-gray-700 font-bold mb-2 underline">Description</label>
         <textarea
           id="description"
           value={description}

@@ -6,7 +6,7 @@ const Post = require('../models/Post');
 // Multer configuration for handling file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/');
+    cb(null, 'public/images/');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname);

@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-blue-900 to-purple-900 font-serif">
+    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-blue-900 to-purple-900 font-mono">
   <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
     <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">🚀 Login</h2>
     <form className="space-y-4">
